@@ -6,7 +6,7 @@ class Header(Container):
             className = "test",
             children = [
                 Text(
-                    className = "text",
+                    className = "header-text",
                     textContent = f"{greet}, I'm a header component!"
                 )
             ]
