@@ -17,7 +17,7 @@ class MyWebpage(Container):
                     textContent = "You're now seeing a PyFyre app running on the wild. Python? Running? On the client-side web!!!!??"
                 ),
                 Container(
-                    className="flex justify-center items-center",
+                    className="flex flex-col mt-5 justify-center items-center md:flex-row md:mt-0",
                     children=[
                         Text(
                             className = "mt-3 text-lg",
@@ -31,7 +31,7 @@ class MyWebpage(Container):
                     ]
                 ),
                 Text(
-                    className = "mt-10 mx-auto rounded-lg py-2 w-2/12 text-xl font-bold bg-[#333333]",
+                    className = "mt-10 mx-auto rounded-lg py-2 w-6/12 text-xl font-bold bg-[#333333] md:w-2/12",
                     textContent = "pip install pyfyre"
                 ),
             ]
