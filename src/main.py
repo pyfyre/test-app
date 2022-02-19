@@ -1,38 +1,22 @@
-from pyf_modules.widgets import *
+from src.components.counterapp import CounterApp
+from pyfyre.widgets import *
+from src.components.experiment import Experiment
 
 # You can make components by inherting a Widget class
 # and initialize it on the `super().__init__()`.
-class MyWebpage(Container):
-    
-    def __init__(self):
-        super().__init__(
-            className = "h-screen w-screen flex flex-col justify-center text-center text-white font-mono",
+class MyWebpage(UsesState):
+    def __init__(self, greet):
+        self.greet = greet
+
+    def build(self):
+        return Container(
+            className = "container",
             children = [
                 Text(
-                    className = "text-6xl font-bold",
-                    textContent = "Welcome to PyFyre Test Website!"
+                    f"{self.greet} to PyFyre!",
+                    className="title"
                 ),
-                Text(
-                    className = "mt-3 text-lg",
-                    textContent = "You're now seeing a PyFyre app running on the wild. Python? Running? On the client-side web!!!!??"
-                ),
-                Container(
-                    className="flex flex-col mt-5 justify-center items-center md:flex-row md:mt-0",
-                    children=[
-                        Text(
-                            className = "mt-3 text-lg",
-                            textContent = "Sounds like replacing Javascript on the web. Anyways, wanna try PyFyre out?"
-                        ),
-                        Anchor(
-                            className="text-sm mt-3 ml-2 font-bold",
-                            textContent="https://github.com/pyfyre/pyfyre",
-                            link="https://github.com/pyfyre/pyfyre"
-                        )
-                    ]
-                ),
-                Text(
-                    className = "mt-10 mx-auto rounded-lg py-2 w-6/12 text-xl font-bold bg-[#333333] md:w-2/12",
-                    textContent = "pip install pyfyre"
-                ),
+                Experiment(),
+                CounterApp()
             ]
         )
